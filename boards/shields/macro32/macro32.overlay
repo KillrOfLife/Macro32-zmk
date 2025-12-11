@@ -4,9 +4,8 @@
 
 / {
     chosen {
-        zmk,physical-layout = &macro32_layout;
         zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &macro32_layout;
     };
 
 	kscan0: kscan {

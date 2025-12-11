@@ -21,4 +21,4 @@
 include:
   - board: nice_nano_v2
     shield: macro32
-    snippet: studio-rpc-usb-uart
+    snippet: zmk-usb-logging
