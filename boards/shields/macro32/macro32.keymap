@@ -148,7 +148,7 @@
 &kp COMMA         &kp PERIOD          &kp SLASH       &kp MINUS       &kp EQUAL
             >;
 
-            sensor-bindings = <&inc_dec_mo 1 3 &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         nav {
@@ -160,7 +160,7 @@
 &trans      &trans         &trans           &trans                    &trans
             >;
 
-            sensor-bindings = <&inc_dec_mo 2 0 &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         synnum {
@@ -172,7 +172,7 @@
 &trans     &trans        &trans       &trans         &trans
             >;
 
-            sensor-bindings = <&inc_dec_mo 3 1 &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         fun {
@@ -184,7 +184,7 @@
 &trans      &trans          &trans          &trans           &trans
             >;
 
-            sensor-bindings = <&inc_dec_mo 0 2 &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
