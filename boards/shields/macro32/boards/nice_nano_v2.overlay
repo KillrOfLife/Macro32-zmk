@@ -55,6 +55,8 @@
 		segment-remap;
 		com-invdir;
 		prechargep = <0x22>;
+		reset-gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
+		data-cmd-gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
 	};
 };
 
