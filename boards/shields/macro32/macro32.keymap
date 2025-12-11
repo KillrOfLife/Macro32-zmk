@@ -45,6 +45,10 @@
     release-after-ms = <600>;
 };
 
+&nice_view_spi {
+    status-screen-tick-interval-ms = <500>;
+};
+
 / {
     behaviors {
         dotcol: dot_col {
