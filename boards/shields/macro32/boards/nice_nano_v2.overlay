@@ -42,21 +42,13 @@
 	pinctrl-names = "default", "sleep";
 	cs-gpios = <&gpio0 5 GPIO_ACTIVE_LOW>;
 
-	oled_spi: ssd1306@0 {
-		compatible = "solomon,ssd1306fb";
+	nice_view_spi: ls0xx@0 {
+		compatible = "sharp,ls0xx";
+		label = "DISPLAY";
 		reg = <0>;
-		spi-max-frequency = <4000000>;
-		width = <128>;
-		height = <32>;
-		segment-offset = <0>;
-		page-offset = <0>;
-		display-offset = <0>;
-		multiplex-ratio = <31>;
-		segment-remap;
-		com-invdir;
-		prechargep = <0x22>;
-		reset-gpios = <&gpio0 18 GPIO_ACTIVE_LOW>;
-		data-cmd-gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
+		spi-max-frequency = <1000000>;
+		width = <160>;
+		height = <68>;
 	};
 };
 
@@ -67,26 +59,12 @@
 	pinctrl-1 = <&i2c0_sleep>;
 	pinctrl-names = "default", "sleep";
 	clock-frequency = <I2C_BITRATE_STANDARD>;
-
-	oled_i2c: ssd1306@3c {
-		compatible = "solomon,ssd1306fb";
-		reg = <0x3c>;
-		width = <128>;
-		height = <32>;
-		segment-offset = <0>;
-		page-offset = <0>;
-		display-offset = <0>;
-		multiplex-ratio = <31>;
-		segment-remap;
-		com-invdir;
-		prechargep = <0x22>;
-	};
 };
 
 / {
 	chosen {
 		zmk,kscan = &matrix;
-		zephyr,display = &oled_spi;
+		zephyr,display = &nice_view_spi;
 	};
 
 	matrix: kscan {
