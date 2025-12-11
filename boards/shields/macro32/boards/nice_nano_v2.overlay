@@ -38,7 +38,7 @@
 	pinctrl-0 = <&spi3_default>;
 	pinctrl-1 = <&spi3_sleep>;
 	pinctrl-names = "default", "sleep";
-	cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
+	cs-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
 
 	nice_view_spi: ls0xx@0 {
 		compatible = "sharp,ls0xx";
