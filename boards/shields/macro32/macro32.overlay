@@ -6,6 +6,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &macro32_layout;
+        zephyr,display = &nice_view_spi;
     };
 
 	kscan0: kscan {
@@ -28,7 +29,7 @@
 			<&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 	};
 
-    default_transform: matrix_transform {
+	default_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
         rows = <5>;
         columns = <5>;
@@ -39,5 +40,39 @@
             RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4)
             RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4)
         >;
+    };
+};
+
+&pinctrl {
+    spi3_default: spi3_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 22)>;
+        };
+    };
+
+    spi3_sleep: spi3_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 22)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi3 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi3_default>;
+    pinctrl-1 = <&spi3_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
+
+    nice_view_spi: ls0xx@0 {
+        compatible = "sharp,ls0xx";
+        reg = <0>;
+        spi-max-frequency = <1000000>;
+        width = <160>;
+        height = <68>;
     };
 };
