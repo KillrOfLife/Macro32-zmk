@@ -1,0 +1,6 @@
+if SHIELD_MACRO32
+
+config ZMK_KEYBOARD_NAME
+    default "macro32"
+
+endif
