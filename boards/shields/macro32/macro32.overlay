@@ -4,8 +4,8 @@
 
 / {
     chosen {
+        zmk,physical-layout = &macro32_layout;
         zmk,kscan = &matrix;
-        zmk,physical-layout = macro32_layout;
     };
 
     default_transform: matrix_transform {
