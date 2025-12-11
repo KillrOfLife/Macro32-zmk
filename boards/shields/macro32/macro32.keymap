@@ -141,7 +141,7 @@
 &mt LEFT_SHIFT R  &mt LEFT_CONTROL S  &mt LEFT_ALT T  &mt LEFT_GUI H  &kp K
 &kp C             &kp G               &kp D           &lt 1 SPACE     &lt 2 E
 &kp Z             &kp V               &kp B           &kp N           &kp M
-&kp COMMA         &kp PERIOD          &kp SLASH       &kp MINUS       &kp EQUAL
+&kp COMMA         &kp PERIOD          &kp SLASH       &studio_unlock       &kp EQUAL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
