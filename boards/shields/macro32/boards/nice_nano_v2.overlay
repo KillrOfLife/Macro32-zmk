@@ -1,58 +1,17 @@
 #include <physical_layouts.dtsi>
 
-&pinctrl {
-	spi3_default: spi3_default {
-		group1 {
-			psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
-				<NRF_PSEL(SPIM_MOSI, 0, 22)>;
-		};
-	};
 
-	spi3_sleep: spi3_sleep {
-		group1 {
-			psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
-				<NRF_PSEL(SPIM_MOSI, 0, 22)>;
-			low-power-enable;
-		};
-	};
 
-	i2c0_default: i2c0_default {
-		group1 {
-			psels = <NRF_PSEL(TWIM_SDA, 1, 0)>,
-				<NRF_PSEL(TWIM_SCL, 0, 11)>;
-		};
-	};
-
-	i2c0_sleep: i2c0_sleep {
-		group1 {
-			psels = <NRF_PSEL(TWIM_SDA, 1, 0)>,
-				<NRF_PSEL(TWIM_SCL, 0, 11)>;
-			low-power-enable;
-		};
-	};
-};
-
-nice_view_spi: &spi3 {
-	compatible = "nordic,nrf-spim";
+nice_view_spi: nice_view_spi {
+	compatible = "spi";
 	status = "okay";
-	pinctrl-0 = <&spi3_default>;
-	pinctrl-1 = <&spi3_sleep>;
-	pinctrl-names = "default", "sleep";
-	cs-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
-};
-
-&i2c0 {
-	compatible = "nordic,nrf-twim";
-	status = "disabled";
-	pinctrl-0 = <&i2c0_default>;
-	pinctrl-1 = <&i2c0_sleep>;
-	pinctrl-names = "default", "sleep";
-	clock-frequency = <I2C_BITRATE_STANDARD>;
+	cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
+    mosi-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
+    sclk-gpios = <&gpio0 17 GPIO_ACTIVE_HIGH>;
 };
 
 / {
 	chosen {
-		zmk,kscan = &matrix;
 		zephyr,display = &nice_view;
 	};
 
