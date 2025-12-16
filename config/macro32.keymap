@@ -17,7 +17,7 @@
 &kp R             &kp S             &kp T             &kp H             &kp K
 &kp C             &kp G             &kp D             &kp SPACE         &kp E
 &kp Z             &kp V             &kp B             &kp N             &kp M
-&kp COMMA         &kp PERIOD        &kp SLASH         &studio_unlock         &ext_power EP_TOG
+&kp COMMA         &kp PERIOD        &kp SLASH         &studio_unlock         &kp EQUAL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
