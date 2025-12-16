@@ -24,7 +24,7 @@ nice_view_spi: &spi3 {
     pinctrl-names = "default", "sleep";
 
     /* CS pin for the display */
-    cs-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
+    cs-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
 };
 	
 / {
