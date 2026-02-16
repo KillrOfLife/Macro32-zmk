@@ -25,6 +25,13 @@ nice_view_spi: &spi0 {
 
     /* CS pin for the display */
     cs-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;
+	nice_view: ls0xx@0 {
+		compatible = "sharp,ls0xx";
+		reg = <0>; /* Matches the first CS pin in cs-gpios */
+		spi-max-frequency = <1000000>;
+		width = <160>;
+		height = <68>;
+	};
 };
 	
 / {
